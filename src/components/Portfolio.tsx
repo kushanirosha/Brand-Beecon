@@ -1,73 +1,10 @@
-// import { Swiper, SwiperSlide } from 'swiper/react';
-
-// import 'swiper/css';
-// import 'swiper/css/effect-coverflow';
-// import 'swiper/css/pagination';
-
-// import '../index.css';
-
-// import { EffectCoverflow, Pagination } from 'swiper/modules';
-
-// export default function App() {
-//   return (
-//     <>
-//       <Swiper
-//         effect={'coverflow'}
-//         grabCursor={true}
-//         centeredSlides={true}
-//         slidesPerView={'auto'}
-//         coverflowEffect={{
-//           rotate: 50,
-//           stretch: 0,
-//           depth: 100,
-//           modifier: 1,
-//           slideShadows: true,
-//         }}
-//         // pagination={true}
-//         modules={[EffectCoverflow, Pagination]}
-//         className="mySwiper"
-//       >
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-//         </SwiperSlide>
-//         <SwiperSlide>
-//           <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-//         </SwiperSlide>
-//       </Swiper>
-//     </>
-//   );
-// }
-
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import '../index.css';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-import A1 from '../public/images/about/1.jpg';
+import A1 from '../public/images/about/1.webp';
 import A2 from '../public/images/about/2.jpg';
 import A3 from '../public/images/about/3.jpg';
 import A4 from '../public/images/about/4.jpg';
