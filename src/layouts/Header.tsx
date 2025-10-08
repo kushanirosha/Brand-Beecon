@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-1/2 transform -translate-x-1/2 lg:w-[85%] md:w-[85%] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-50 transition-all duration-300">
+    <header className="fixed top-0 left-1/2 transform -translate-x-1/2 w-[85%] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-50 transition-all duration-300">
       <nav
         className={`flex items-center justify-between bg-transparent backdrop-blur-md rounded-b-2xl shadow-md px-6 py-4 md:px-10 transition-all duration-300 ${
           isScrolled ? "shadow-lg" : "shadow-md"

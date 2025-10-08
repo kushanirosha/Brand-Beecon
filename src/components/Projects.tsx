@@ -20,6 +20,7 @@ const projects: Project[] = [
   { name: "Pet Items", icon: <FaPaw /> },
   { name: "Food", icon: <FaHamburger /> },
   { name: "Immigration", icon: <FaPlane /> },
+  { name: "Appliances", icon: <CgSmartHomeWashMachine /> }
 ];
 
 const PortfolioSection: React.FC = () => {
