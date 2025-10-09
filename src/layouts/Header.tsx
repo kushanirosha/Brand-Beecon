@@ -61,7 +61,7 @@ const Header: React.FC = () => {
             href="/hire"
             className="bg-[#2E3453] text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
           >
-            Hire Me
+            Get Quotation 
           </a>
         </div>
 
@@ -104,7 +104,7 @@ const Header: React.FC = () => {
             href="/hire"
             className="bg-[#2E3453] text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
           >
-            Hire Me
+            Get Quotation
           </a>
         </div>
       )}

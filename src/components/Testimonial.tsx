@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import bgImg from "../public/images/bg-wave.jpg";
 import TE1 from "../public/images/Testimonials/Te1.jpeg";
 import TE2 from "../public/images/Testimonials/Te2.jpeg";
-import TE3 from "../public/images/Testimonials/Te3.jpg";
-import TE4 from "../public/images/Testimonials/Te4.jpg";
+import TE3 from "../public/images/Testimonials/Te1.jpeg";
+import TE4 from "../public/images/Testimonials/Te2.jpeg";
 
 const feedbacks = [
   { 

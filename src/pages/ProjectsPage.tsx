@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { projectData } from "../utils/Dummydata";
 import { FaEye } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 interface Hotel {
   name: string;
@@ -133,8 +134,19 @@ const ProjectDetailsPage: React.FC = () => {
       : getCategoryImages(selectedProject)
     : getAllImages();
 
+  // ✨ Page animation
+  const pageAnimation = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
-    <div className="pb-20 pt-28 bg-gray-100 min-h-screen rounded-b-[50px]">
+    <motion.div
+      className="pb-20 pt-28 bg-gray-100 min-h-screen rounded-b-[50px]"
+      initial="hidden"
+      animate="visible"
+      variants={pageAnimation}
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Title Section */}
         <h2 className="text-4xl font-bold text-[#3c405b] mb-2 text-center">
@@ -256,7 +268,7 @@ const ProjectDetailsPage: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

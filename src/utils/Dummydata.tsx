@@ -316,7 +316,7 @@ export const projectData: Record<string, Project> = {
   education: {
     name: "Education",
     icon: <MdCastForEducation />,
-    desc: "Efficient transport systems",
+    desc: "Knowledge Empowers Growth",
     images: [ITA1, ITA2, ITA3, ITA4, ITA5,
       ITA6, ITA7, ITA8, ITA9, ITA10,
       ITA11, ITA12, ITA13, ITA14, ITA15,
@@ -325,7 +325,7 @@ export const projectData: Record<string, Project> = {
   appliances: {
     name: "Appliances",
     icon: <CgSmartHomeWashMachine />,
-    desc: "Delicious food services",
+    desc: "Efficiency Simplifies Life",
     images: [Sha1, Sha2, Sha3, Sha4, Sha5,
       Sha6, Sha8, Sha9, Sha10,
       Sha11, Sha12,],
@@ -333,7 +333,7 @@ export const projectData: Record<string, Project> = {
   immigration1: {
     name: "Automobile",
     icon: <FaPlane />,
-    desc: "Visa and migration help",
+    desc: "Efficient transport systems",
     images: [Ta1, Ta2, Ta3, Ta4, Ta5,
       Ta6, Ta7, Ta8, Ta9,],
   },

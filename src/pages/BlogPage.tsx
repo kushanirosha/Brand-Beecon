@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { blogs as initialBlogs, Blog } from "../utils/Blogdata";
 import SubscribeSection from "../components/subscribe";
+import { motion } from "framer-motion";
 
 interface Comment {
   id: number;
@@ -11,7 +12,7 @@ interface Comment {
 }
 
 const BlogPage: React.FC = () => {
-  const { blogId } = useParams<{ blogId?: string }>(); 
+  const { blogId } = useParams<{ blogId?: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,11 +25,13 @@ const BlogPage: React.FC = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const [blogs, setBlogs] = useState<Blog[]>(initialBlogs);
-
-  const newestBlog = blogs.reduce((latest, blog) =>
-    blog.id > latest.id ? blog : latest
+  // Sort blogs from newest → oldest
+  const sortedBlogs = [...initialBlogs].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
+
+  const [blogs, setBlogs] = useState<Blog[]>(sortedBlogs);
+  const newestBlog = sortedBlogs[0];
 
   useEffect(() => {
     if (!blogId && newestBlog) {
@@ -48,13 +51,11 @@ const BlogPage: React.FC = () => {
 
     try {
       const formData = new FormData();
-      formData.append("access_key", "b9bf4eb1-37a2-458f-81bf-11255f5b2da6"); 
+      formData.append("access_key", "b9bf4eb1-37a2-458f-81bf-11255f5b2da6");
       formData.append("email", newEmail);
       formData.append("message", newComment);
-      formData.append("subject", `New Comment on Blog ID: ${selectedBlog.id}`);
-
-      // Extra field for blogId
-      formData.append("blog_id", String(selectedBlog.id));
+      formData.append("subject", `New Comment on Blog: ${selectedBlog.title}`);
+      formData.append("blog_title", selectedBlog.title);
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -74,7 +75,6 @@ const BlogPage: React.FC = () => {
         ]);
         setNewComment("");
         setNewEmail("");
-
         setSuccessMessage("✅ Comment submitted successfully!");
         setTimeout(() => setSuccessMessage(""), 3000);
       } else {
@@ -95,11 +95,26 @@ const BlogPage: React.FC = () => {
     setBlogs(updatedBlogs);
   };
 
+  // ✨ Fade-up animation variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
   return (
-    <div className="pt-28 bg-gray-50 min-h-screen rounded-b-[50px]">
+    <motion.div
+      className="pt-28 bg-gray-50 min-h-screen rounded-b-[50px]"
+      variants={fadeUp}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Main Blog Content */}
+          {/* 📰 Main Blog Content */}
           <div className="lg:col-span-3">
             <div className="mb-12">
               <img
@@ -111,7 +126,6 @@ const BlogPage: React.FC = () => {
                 {selectedBlog.title}
               </h1>
               <p className="text-center text-gray-500 mt-2 flex items-center justify-center gap-4">
-                {/* Blog ID: {selectedBlog.id} */}
                 {selectedBlog.date}
                 <button
                   onClick={() => handleLike(selectedBlog.id)}
@@ -123,9 +137,11 @@ const BlogPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="text-gray-700">{selectedBlog.description}</div>
+            <div className="text-gray-700 leading-relaxed">
+              {selectedBlog.description}
+            </div>
 
-            {/* Comments */}
+            {/* 💬 Comments Section */}
             <div className="mt-12">
               <h2 className="text-2xl font-semibold text-[#3c405b] mb-4">
                 Comments
@@ -134,7 +150,7 @@ const BlogPage: React.FC = () => {
                 {comments.map((comment) => (
                   <div
                     key={comment.id}
-                    className="bg-white p-4 rounded-lg shadow-sm"
+                    className="bg-white p-4 rounded-lg shadow-sm border border-gray-100"
                   >
                     <p className="text-gray-700">{comment.text}</p>
                     <p className="text-sm text-gray-500 mt-2">
@@ -144,7 +160,7 @@ const BlogPage: React.FC = () => {
                 ))}
               </div>
 
-              {/* Form */}
+              {/* 📝 Comment Form */}
               <form onSubmit={handleCommentSubmit} className="mt-6 space-y-4">
                 <input
                   type="email"
@@ -172,24 +188,35 @@ const BlogPage: React.FC = () => {
               </form>
 
               {successMessage && (
-                <p className="mt-4 text-green-600 font-medium">{successMessage}</p>
+                <p className="mt-4 text-green-600 font-medium">
+                  {successMessage}
+                </p>
               )}
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <h2 className="text-2xl font-semibold text-[#3c405b] mb-6">
-              All Blogs
+          {/* 🧭 Sidebar */}
+          <div className="lg:col-span-1 bg-gradient-to-b from-[#f8f9fb] to-[#e9ecf4] shadow-xl p-5 rounded-2xl border border-gray-200">
+            <h2 className="text-3xl font-bold text-[#3c405b] mb-2 text-center">
+              📰 Latest Blogs
             </h2>
-            <div className="overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
-              {blogs.map((blog) => (
+            <p className="text-center text-[#5a5e78] text-sm mb-5 italic">
+              "Stay inspired and keep learning."
+            </p>
+            <div className="bg-[#3c405b] h-1 w-1/2 mx-auto mb-5 rounded-full"></div>
+
+            <div className="p-1 overflow-y-auto scrollbar-thin scrollbar-thumb-[#3c405b]/40 scrollbar-track-gray-100">
+              {blogs.map((blog, index) => (
                 <Link
                   key={blog.id}
                   to={`/blog/${blog.id}`}
-                  className={`block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow mb-6 ${
-                    selectedBlog.id === blog.id ? "ring-2 ring-[#3c405b]" : ""
-                  }`}
+                  className={`block rounded-xl overflow-hidden transition-all duration-300 mb-5 ${
+                    selectedBlog.id === blog.id
+                      ? "ring-2 ring-[#3c405b] bg-[#f0f2f8]"
+                      : index % 2 === 0
+                      ? "bg-white hover:bg-[#f9fafc]"
+                      : "bg-[#f3f4f8] hover:bg-[#eef0f6]"
+                  } shadow-md hover:shadow-lg`}
                 >
                   <img
                     src={blog.image}
@@ -197,17 +224,17 @@ const BlogPage: React.FC = () => {
                     className="w-full h-32 object-cover"
                   />
                   <div className="p-4">
-                    <h3 className="text-lg font-bold text-[#3c405b]">
+                    <h3 className="text-lg font-bold text-[#2E3453] leading-tight line-clamp-2">
                       {blog.title}
                     </h3>
-                    <p className="text-sm text-gray-500 mt-1">{blog.date}</p>
-                    <div className="flex justify-between text-sm text-gray-600 mt-3">
+                    <p className="text-sm text-[#6b718a] mt-1">{blog.date}</p>
+                    <div className="flex justify-between text-sm text-[#3c405b] mt-3 font-medium">
                       <button
                         onClick={(e) => {
                           e.preventDefault();
                           handleLike(blog.id);
                         }}
-                        className="flex items-center gap-1 text-[#3c405b] hover:text-[#2E3453] transition"
+                        className="flex items-center gap-1 hover:text-[#2E3453]"
                       >
                         👍 {blog.reactions}
                       </button>
@@ -221,11 +248,11 @@ const BlogPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Subscribe Section */}
+      {/* 📩 Subscribe Section */}
       <div className="bg-gray-100 mt-10 rounded-b-[50px]">
         <SubscribeSection />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

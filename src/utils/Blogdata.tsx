@@ -1,3 +1,10 @@
+import B1 from "../public/images/blog/1/Artboard 1.jpg";
+import B2 from "../public/images/blog/2/Artboard 1.jpg";
+import B3 from "../public/images/blog/3/Artboard 1.jpg";
+import B4 from "../public/images/blog/4/Artboard 1.jpg";
+import B5 from "../public/images/blog/5/Artboard 1.jpg";
+import B6 from "../public/images/blog/6/Artboard 1.jpg";
+import B7 from "../public/images/blog/7/Artboard 1.jpg";
 
 export interface Blog {
   id: number;
@@ -13,10 +20,10 @@ export const blogs: Blog[] = [
   {
     id: 1,
     title: "Elements and Principles of Graphic Design",
-    image: "https://picsum.photos/1200/400?random=1",
-    date: "Sep 18, 2025",
-    reactions: 250,
-    comments: 30,
+    image: B1,
+    date: "Oct 08, 2025",
+    reactions: 134,
+    comments: 11,
     description: (
       <div className="">
         <p>
@@ -77,7 +84,7 @@ export const blogs: Blog[] = [
           While elements are the tools, design principles are the rules or
           guidelines to organize those tools harmoniously. Principles ensure the
           design is not only beautiful but functional and easy to understand by
-          the audience.
+          the audience. Key design principles include:
         </p>
         <ul>
           <li>
@@ -198,10 +205,10 @@ export const blogs: Blog[] = [
   {
     id: 2,
     title: "Right Color Palette for Your Brand",
-    image: "https://picsum.photos/1200/400?random=2",
-    date: "Sep 25, 2025",
+    image: B2,
+    date: "Sep 29, 2025",
     reactions: 180,
-    comments: 22,
+    comments: 15,
     description: (
       <div className="">
         <p>
@@ -336,10 +343,10 @@ export const blogs: Blog[] = [
   {
     id: 3,
     title: "Top Graphic Design Trends (2025)",
-    image: "https://picsum.photos/1200/400?random=3",
-    date: "Sep 28, 2025",
+    image: B3,
+    date: "Sep 18, 2025",
     reactions: 210,
-    comments: 28,
+    comments: 8,
     description: (
       <div className="">
         <p>
@@ -473,10 +480,10 @@ export const blogs: Blog[] = [
   {
     id: 4,
     title: "Typography and Effective Design",
-    image: "https://picsum.photos/1200/400?random=4",
-    date: "Oct 02, 2025",
+    image: B4,
+    date: "Aug 22, 2025",
     reactions: 195,
-    comments: 25,
+    comments: 15,
     description: (
       <div className="">
         <p>
@@ -592,10 +599,10 @@ export const blogs: Blog[] = [
   {
     id: 5,
     title: "Logo Design Tips for Beginners",
-    image: "https://picsum.photos/1200/400?random=5",
-    date: "Oct 05, 2025",
-    reactions: 220,
-    comments: 32,
+    image: B5,
+    date: "July 05, 2025",
+    reactions: 120,
+    comments: 22,
     description: (
       <div className="">
         <p>
@@ -718,19 +725,14 @@ export const blogs: Blog[] = [
   {
     id: 6,
     title: "Negative Space",
-    image: "https://picsum.photos/1200/400?random=6",
-    date: "Oct 10, 2025",
+    image: B6,
+    date: "June 10, 2025",
     reactions: 180,
     comments: 28,
     description: (
       <div className="">
         <p>
-          Negative space is a deceptively simple yet immensely powerful design
-          tool. When wielded creatively, it transforms visual communication by
-          enhancing clarity, adding sophistication, and inviting viewer engagement
-          through subtle discoveries. For designers eager to elevate their work,
-          mastering negative space is an essential step toward stunning, memorable
-          designs.
+          Negative space—often referred to as white space—is the unoccupied area around and between the focal elements of a design. While it may seem like “empty” space, it plays a vital role in shaping how visuals are perceived, improving communication, and adding elegance. Here is a comprehensive overview of how to harness negative space creatively in graphic design.
         </p>
 
         {/* Section 1 */}
@@ -842,8 +844,8 @@ export const blogs: Blog[] = [
   {
     id: 7,
     title: "Tips for Designing Infographics",
-    image: "https://picsum.photos/1200/400?random=7",
-    date: "Oct 15, 2025",
+    image: B7,
+    date: "May 15, 2025",
     reactions: 200,
     comments: 25,
     description: (

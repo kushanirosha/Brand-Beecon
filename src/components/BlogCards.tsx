@@ -13,8 +13,8 @@ export default function BlogSwiper() {
   return (
     <div className="max-w-[95vw] sm:max-w-4xl md:max-w-5xl lg:max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-8 py-6 sm:py-8">
       <Swiper
-        slidesPerView={1} // Default for mobile
-        spaceBetween={10} // Default for mobile
+        slidesPerView={1}
+        spaceBetween={10}
         centeredSlides={false}
         pagination={{ clickable: true }}
         modules={[Pagination]}
@@ -28,20 +28,23 @@ export default function BlogSwiper() {
             spaceBetween: 30,
           },
         }}
-        className="mySwiper"
+        className="mySwiper mt-3"
       >
         {sortedBlogs.map((blog) => (
           <SwiperSlide key={blog.id}>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col h-[280px] sm:h-[300px] md:h-[310px] lg:h-[320px]">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col h-[340px] sm:h-[330px] md:h-[340px] lg:h-[310px]">
+              {/* Blog Image */}
               <div className="flex-shrink-0">
                 <img
                   src={blog.image}
                   alt={blog.title}
-                  className="w-full h-32 sm:h-36 md:h-40 lg:h-44 object-cover"
+                  className="w-full h-24 sm:h-36 md:h-40 lg:h-32 object-cover"
                 />
               </div>
 
-              <div className="p-3 sm:p-4 md:p-5 flex flex-col flex-1">
+              {/* Blog Content */}
+              <div className="p-3 sm:p-4 md:p-5 flex flex-col flex-1 justify-between">
+                {/* Title and Date */}
                 <div>
                   <h3
                     className="text-base sm:text-lg md:text-xl font-bold mb-2 text-[#3c405b]"
@@ -59,7 +62,8 @@ export default function BlogSwiper() {
                   </p>
                 </div>
 
-                <div className="mt-auto">
+                {/* Reactions and Button */}
+                <div>
                   <div className="flex justify-between items-center text-gray-500 text-xs sm:text-sm md:text-sm">
                     <span>❤️ {blog.reactions}</span>
                     <span>💬 {blog.comments}</span>
