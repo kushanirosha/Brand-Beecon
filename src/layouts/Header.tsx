@@ -24,9 +24,8 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-1/2 transform -translate-x-1/2 w-[85%] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-50 transition-all duration-300">
       <nav
-        className={`flex items-center justify-between bg-transparent backdrop-blur-md rounded-b-2xl shadow-md px-6 py-4 md:px-10 transition-all duration-300 ${
-          isScrolled ? "shadow-lg" : "shadow-md"
-        }`}
+        className={`flex items-center justify-between bg-transparent backdrop-blur-md rounded-b-2xl shadow-md px-6 py-4 md:px-10 transition-all duration-300 ${isScrolled ? "shadow-lg" : "shadow-md"
+          }`}
       >
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -40,26 +39,18 @@ const Header: React.FC = () => {
               key={item.name}
               to={item.href}
               className={({ isActive }) =>
-                `relative group font-medium transition-colors ${
-                  isActive
-                    ? "text-blue-800"
-                    : "text-[#3c405b] hover:text-blue-800"
+                `relative group font-medium transition-colors ${isActive ? "text-blue-800" : "text-[#3c405b] hover:text-blue-800"
                 }`
               }
             >
-              {({ isActive }) => (
-                <>
-                  {item.name}
-                  {/* Underline */}
-                  <span
-                    className={`absolute left-0 -bottom-1 h-0.5 bg-blue-800 transition-all duration-300 ${
-                      window.location.pathname === item.href
-                        ? "w-full"
-                        : "w-0 group-hover:w-full"
-                    }`}
-                  ></span>
-                </>
-              )}
+              {item.name}
+              <span
+                className={`absolute left-0 -bottom-1 h-0.5 bg-blue-800 transition-all duration-300 ${(item.href === "/" && window.location.pathname === "/") ||
+                    (item.href !== "/" && window.location.pathname.startsWith(item.href))
+                    ? "w-full"
+                    : "w-0 group-hover:w-full"
+                  }`}
+              ></span>
             </NavLink>
           ))}
         </div>
@@ -92,20 +83,18 @@ const Header: React.FC = () => {
               to={item.href}
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
-                `relative font-medium text-lg transition-colors ${
-                  isActive
-                    ? "text-blue-800"
-                    : "text-[#3c405b] hover:text-blue-800"
+                `relative font-medium text-lg transition-colors ${isActive
+                  ? "text-blue-800"
+                  : "text-[#3c405b] hover:text-blue-800"
                 }`
               }
             >
               {item.name}
               <span
-                className={`absolute left-0 -bottom-1 h-0.5 bg-blue-800 transition-all duration-300 ${
-                  window.location.pathname === item.href
+                className={`absolute left-0 -bottom-1 h-0.5 bg-blue-800 transition-all duration-300 ${window.location.pathname === item.href
                     ? "w-full"
                     : "w-0 group-hover:w-full"
-                }`}
+                  }`}
               ></span>
             </NavLink>
           ))}

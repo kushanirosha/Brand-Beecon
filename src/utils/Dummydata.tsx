@@ -322,7 +322,7 @@ export const projectData: Record<string, Project> = {
       ITA11, ITA12, ITA13, ITA14, ITA15,
       ITA16, ITA17, ITA18, ITA19,],
   },
-  food1: {
+  appliances: {
     name: "Appliances",
     icon: <CgSmartHomeWashMachine />,
     desc: "Delicious food services",

@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
             Let's Work Together
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Have a project in mind? I'd love to hear about it. Let's discuss how we can bring your ideas to life.
+            Have a project in mind? We'd love to hear about it. Let's discuss how we can bring your ideas to life.
           </p>
         </motion.div>
 
@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
             {/* Social Links */}
             <motion.div className="border-t-2 border-gray-200 dark:border-gray-700 pt-8" variants={itemVariants}>
               <h4 className="text-xl font-semibold text-[#3c405b] dark:text-white mb-4">
-                Follow Me
+                Follow Us
               </h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
                 Ready to Start Your Project?
               </h4>
               <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Let's schedule a call to discuss your requirements and how I can help bring your vision to life.
+                Let's schedule a call to discuss your requirements and how we can help bring your vision to life.
               </p>
               <button
                 onClick={() => window.location.href = "tel:+94759929718"}

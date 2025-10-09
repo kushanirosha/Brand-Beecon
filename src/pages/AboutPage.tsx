@@ -1,69 +1,42 @@
-import React, { useEffect } from 'react';
-import Contact from '../components/Contact';
-import SubscribeSection from '../components/subscribe';
-import Profile from '../public/images/profileAbout.jpg';
-import SkillsSection from '../components/SkillsSection';
-import PortfolioPage from './PortfolioPage';
-import HeroSection from '../components/Hero';
-
-// interface Skill {
-//   name: string;
-//   level: number;
-// }
-
-// interface Experience {
-//   period: string;
-//   title: string;
-//   company: string;
-//   description: string;
-// }
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import Contact from "../components/Contact";
+import SubscribeSection from "../components/subscribe";
+import Profile from "../public/images/profileAbout.jpg";
+import SkillsSection from "../components/SkillsSection";
+import HeroSection from "../components/Hero";
 
 const AboutPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-
-  // const skills: Skill[] = [
-  //   { name: 'Photoshop', level: 95 },
-  //   { name: 'Illustrator', level: 92 },
-  //   { name: 'Indesign', level: 90 },
-  //   { name: 'Animate', level: 88 },
-  //   { name: 'Premiere Pro', level: 85 },
-  //   { name: 'After Effect', level: 80 }
-  // ];
-
-  // const experience: Experience[] = [
-  //   {
-  //     period: '2022 - Present',
-  //     title: 'Senior Web Developer',
-  //     company: 'Tech Solutions Inc.',
-  //     description: 'Leading development of complex web applications and mentoring junior developers.'
-  //   },
-  //   {
-  //     period: '2020 - 2022',
-  //     title: 'Full Stack Developer',
-  //     company: 'Digital Agency Pro',
-  //     description: 'Developed responsive websites and e-commerce solutions for various clients.'
-  //   },
-  //   {
-  //     period: '2018 - 2020',
-  //     title: 'Frontend Developer',
-  //     company: 'StartupXYZ',
-  //     description: 'Built user interfaces and implemented responsive designs for web applications.'
-  //   }
-  // ];
+  // Fade-up-left animation (for all other sections)
+  const fadeUpLeft = {
+    hidden: { opacity: 0, x: -60, y: 40 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
   return (
     <div className="bg-gray-100 rounded-b-[50px]">
-       {/* Hero section */}
-        <HeroSection/>
+      {/* Hero section */}
+      <HeroSection />
 
       {/* About Section */}
-      <section className="bg-gray-100 pb-16 pt-28">
+      <motion.section
+        className="bg-gray-100 pb-16 pt-28"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
+        variants={fadeUpLeft}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
             {/* Left Side - Image */}
             <div className="flex justify-center">
               <img
@@ -76,7 +49,6 @@ const AboutPage: React.FC = () => {
             {/* Right Side - Content */}
             <div className="text-left">
               <h1 className="text-4xl font-bold text-[#3c405b] mb-6">About Me</h1>
-
               <h2 className="text-2xl font-semibold text-gray-800">Pubudu Wijerathne</h2>
               <p className="text-gray-600 mb-4 font-medium">Senior Graphic Designer</p>
 
@@ -107,67 +79,19 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Skills */}
-      {/* <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#3c405b] mb-4">Skills & Expertise</h2>
-            <p className="text-lg text-gray-600">Technologies and tools I work with to bring your ideas to life</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm"
-              >
-                <div className="flex justify-between items-center mb-4">
-                  <span className="font-semibold text-gray-900">{skill.name}</span>
-                  <span className="font-semibold text-[#3c405b]">{skill.level}%</span>
-                </div>
-                <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-[#3c405b] rounded-full transition-all duration-1000"
-                    style={{ width: `${skill.level}%` }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
+      {/* Skills Section - per-card flip-up handled inside component */}
       <SkillsSection />
 
-      {/* Experience */}
-      {/* <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#3c405b] mb-4">Experience</h2>
-            <p className="text-lg text-gray-600">My professional journey in web development and design</p>
-          </div>
-          <div className="relative">
-            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-[#3c405b] md:left-10" />
-            {experience.map((item, index) => (
-              <div key={index} className="relative pl-12 md:pl-16 mb-12">
-                <div className="absolute left-2.5 top-2 w-4 h-4 bg-[#3c405b] rounded-full shadow-md md:left-7.5" />
-                <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-                  <span className="inline-block bg-[#3c405b] text-white px-3 py-1 rounded-md text-sm font-semibold mb-4">
-                    {item.period}
-                  </span>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-                  <h4 className="text-lg font-medium text-[#3c405b] mb-4">{item.company}</h4>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* Values */}
-      <section className="bg-white py-16">
+      <motion.section
+        className="bg-white py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
+        variants={fadeUpLeft}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#3c405b] mb-4">My Values</h2>
@@ -205,14 +129,13 @@ const AboutPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
       <Contact />
 
-      {/* Subscribe Section  */}
+      {/* Subscribe Section */}
       <SubscribeSection />
-
     </div>
   );
 };

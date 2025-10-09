@@ -47,7 +47,8 @@ const PortfolioSection: React.FC = () => {
               onClick={() =>
                 navigate(`/projects/${project.name.toLowerCase().replace(/ /g, "-")}`)
               }
-              className="group relative bg-white rounded-xl shadow-sm hover:shadow-xl border border-gray-100 p-8 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:-translate-y-2"
+              className={`group relative bg-white rounded-xl shadow-sm hover:shadow-xl border border-gray-100 p-8 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:-translate-y-2 
+        ${project.name === "Appliances" ? "md:hidden" : ""}`}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"

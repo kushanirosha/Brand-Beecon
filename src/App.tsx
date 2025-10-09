@@ -24,7 +24,7 @@ const App: React.FC = () => {
           <Header />
 
           {/* Scrollable Content */}
-          <main className="relative z-10 pb-72">
+          <main className="relative z-10 pb-80 lg:pb-72">
             <RoutesComponent />
           </main>
 
