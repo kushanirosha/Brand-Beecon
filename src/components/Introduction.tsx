@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom"; // <- import useNavigate
-import Bgvideo from "../public/4.mp4";
-import logo from "../public/images/logo4.png";
+import { useNavigate } from "react-router-dom"; 
+import Bgvideo from "../public/4.webm";
+import logo from "../public/images/white.png";
 
 const rows = 4;
 const cols = 4;
@@ -28,7 +28,7 @@ const IntroductionSection: React.FC = () => {
       </video>
 
       {/* LEFT FENCE */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 grid grid-cols-1 gap-4">
+      {/* <div className="absolute left-8 top-1/2 -translate-y-1/2 grid grid-cols-1 gap-4">
         {Array.from({ length: rows }).map((_, rowIndex) => (
           <div
             key={rowIndex}
@@ -46,10 +46,10 @@ const IntroductionSection: React.FC = () => {
             />
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* RIGHT FENCE */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 grid grid-cols-1 gap-4">
+      {/* <div className="absolute right-8 top-1/2 -translate-y-1/2 grid grid-cols-1 gap-4">
         {Array.from({ length: rows }).map((_, rowIndex) => (
           <div
             key={rowIndex}
@@ -67,14 +67,14 @@ const IntroductionSection: React.FC = () => {
             />
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* TEXT CONTENT */}
       <div className="relative z-10 text-center text-white px-6">
         <motion.img
           src={logo}
           alt="Logo"
-          className="mx-auto mb-6 w-16"
+          className="mx-auto mb-6 w-16 h-18"
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}

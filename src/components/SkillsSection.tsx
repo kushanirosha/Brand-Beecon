@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import PS from "../public/images/about/ps.png";
-import AI from "../public/images/about/ai.png";
-import ID from "../public/images/about/Id.png";
-import AN from "../public/images/about/an.png";
-import PR from "../public/images/about/Pr.png";
-import AE from "../public/images/about/Ae.png";
+import PS from "../public/images/about/ps.webp";
+import AI from "../public/images/about/ai.webp";
+import ID from "../public/images/about/Id.webp";
+import AN from "../public/images/about/an.webp";
+import PR from "../public/images/about/Pr.webp";
+import AE from "../public/images/about/Ae.webp";
 
 interface Skill {
   name: string;

@@ -1,10 +1,10 @@
-import B1 from "../public/images/blog/1/Artboard 1.jpg";
-import B2 from "../public/images/blog/2/Artboard 1.jpg";
-import B3 from "../public/images/blog/3/Artboard 1.jpg";
-import B4 from "../public/images/blog/4/Artboard 1.jpg";
-import B5 from "../public/images/blog/5/Artboard 1.jpg";
-import B6 from "../public/images/blog/6/Artboard 1.jpg";
-import B7 from "../public/images/blog/7/Artboard 1.jpg";
+import B1 from "../public/images/blog/1/Artboard 1.webp";
+import B2 from "../public/images/blog/2/Artboard 1.webp";
+import B3 from "../public/images/blog/3/Artboard 1.webp";
+import B4 from "../public/images/blog/4/Artboard 1.webp";
+import B5 from "../public/images/blog/5/Artboard 1.webp";
+import B6 from "../public/images/blog/6/Artboard 1.webp";
+import B7 from "../public/images/blog/7/Artboard 1.webp";
 
 export interface Blog {
   id: number;

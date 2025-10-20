@@ -4,11 +4,11 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import '../index.css';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-import A1 from '../public/images/about/1.jpg';
-import A2 from '../public/images/about/2.jpg';
-import A3 from '../public/images/about/3.jpg';
-import A4 from '../public/images/about/4.jpg';
-import A5 from '../public/images/about/5.jpg';
+import A1 from '../public/images/about/1.webp';
+import A2 from '../public/images/about/2.webp';
+import A3 from '../public/images/about/3.webp';
+import A4 from '../public/images/about/4.webp';
+import A5 from '../public/images/about/5.webp';
 
 export default function App() {
   return (

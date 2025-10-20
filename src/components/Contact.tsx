@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 const Contact: React.FC = () => {
   const contactInfo = [
     { icon: Mail, title: 'Email', value: 'info@brandbeecon.com', href: 'mailto:info@brandbeecon.com' },
-    { icon: Phone, title: 'Phone', value: '+94 75 992 9718', href: 'tel:+94759929718' },
+    { icon: Phone, title: 'Phone', value: '+94 78 473 7746', href: 'tel:+94784737746' },
     { icon: MapPin, title: 'Location', value: 'Kandy, Sri Lanka', href: '#' }
   ];
 

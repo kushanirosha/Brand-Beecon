@@ -40,17 +40,16 @@ const ProjectDetailsPage: React.FC = () => {
 
   const handleProjectSelect = (proj: Project) => {
     setSelectedProject(proj);
-    setVisibleCount(12); // reset pagination
+    setVisibleCount(12);
     navigate(`/projects/${proj.name.toLowerCase().replace(/ /g, "-")}`);
   };
 
   const handleAllProjects = () => {
     setSelectedProject(null);
-    setVisibleCount(12); // reset pagination
+    setVisibleCount(12);
     navigate("/projects/all");
   };
 
-  // ✅ Reusable Card
   const Card: React.FC<{
     image: string;
     title: string;
@@ -76,7 +75,6 @@ const ProjectDetailsPage: React.FC = () => {
     </div>
   );
 
-  // ✅ Keyboard navigation
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (!activeGallery) return;
@@ -109,7 +107,6 @@ const ProjectDetailsPage: React.FC = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  // ✅ Collect all images for "All" tab
   const getAllImages = (): { image: string; title: string }[] => {
     return Object.values(projectData).flatMap((proj) => {
       if (proj.hotels) {
@@ -121,20 +118,17 @@ const ProjectDetailsPage: React.FC = () => {
     });
   };
 
-  // ✅ Collect category images
   const getCategoryImages = (proj: Project): { image: string; title: string }[] => {
     if (proj.name === "Hospitality") return [];
     return proj.images?.map((img) => ({ image: img, title: proj.name })) || [];
   };
 
-  // ✅ Get current list of cards
   const cards = selectedProject
     ? selectedProject.name === "Hospitality"
-      ? [] // hospitality unchanged
+      ? []
       : getCategoryImages(selectedProject)
     : getAllImages();
 
-  // ✨ Page animation
   const pageAnimation = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -159,34 +153,44 @@ const ProjectDetailsPage: React.FC = () => {
         </p>
 
         {/* Category Buttons */}
-        <div className="flex justify-center space-x-4 mb-8">
-          <button
-            onClick={handleAllProjects}
-            className={`px-4 py-2 rounded-full text-sm font-medium ${
-              !selectedProject
+        <div className="flex justify-center mb-8">
+          <div className="
+    flex space-x-3 
+    w-full 
+    sm:max-w-4xl 
+    px-4 py-2
+    sm:justify-center 
+    overflow-x-auto sm:overflow-visible 
+    no-scrollbar
+  ">
+            <button
+              onClick={handleAllProjects}
+              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium ${!selectedProject
                 ? "bg-[#3c405b] text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
-          >
-            All
-          </button>
-          {Object.values(projectData).map((proj) => (
-            <button
-              key={proj.name}
-              onClick={() => handleProjectSelect(proj)}
-              className={`px-4 py-2 rounded-full text-sm font-medium ${
-                selectedProject && selectedProject.name === proj.name
+                }`}
+            >
+              All
+            </button>
+
+            {Object.values(projectData).map((proj) => (
+              <button
+                key={proj.name}
+                onClick={() => handleProjectSelect(proj)}
+                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium ${selectedProject && selectedProject.name === proj.name
                   ? "bg-[#3c405b] text-white"
                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
-            >
-              {proj.name}
-            </button>
-          ))}
+                  }`}
+              >
+                {proj.name}
+              </button>
+            ))}
+          </div>
         </div>
+
         <div className="border-t-4 border-gray-300 py-4 w-full"></div>
 
-        {/* Hospitality (unchanged) */}
+        {/* Hospitality */}
         {selectedProject?.name === "Hospitality" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {selectedProject.hotels?.map((hotel, idx) => (
@@ -201,34 +205,52 @@ const ProjectDetailsPage: React.FC = () => {
           </div>
         )}
 
-        {/* Other categories & All tab with scroll + pagination */}
+        {/* Scrollable Section */}
         {((selectedProject && selectedProject.name !== "Hospitality") ||
           !selectedProject) && (
-          <div className="h-screen overflow-y-scroll no-scrollbar">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {cards.slice(0, visibleCount).map((item, idx, arr) => (
-                <Card
-                  key={`${item.title}-${idx}`}
-                  image={item.image}
-                  title={item.title}
-                  gallery={arr.map((i) => i.image)}
-                  galleryIndex={idx}
-                />
-              ))}
-            </div>
-
-            {visibleCount < cards.length && (
-              <div className="flex justify-center mt-6">
-                <button
-                  onClick={() => setVisibleCount((prev) => prev + 12)}
-                  className="px-6 py-2 bg-[#3c405b] text-white rounded-full hover:bg-[#2a2d44] transition"
-                >
-                  See More
-                </button>
+            <div className="h-screen overflow-y-scroll no-scrollbar">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {cards.slice(0, visibleCount).map((item, idx, arr) => (
+                  <Card
+                    key={`${item.title}-${idx}`}
+                    image={item.image}
+                    title={item.title}
+                    gallery={arr.map((i) => i.image)}
+                    galleryIndex={idx}
+                  />
+                ))}
               </div>
-            )}
-          </div>
-        )}
+
+              {visibleCount < cards.length && (
+                <div className="flex justify-center mt-6">
+                  <button
+                    onClick={() => setVisibleCount((prev) => prev + 12)}
+                    className="px-6 py-2 bg-[#3c405b] text-white rounded-full hover:bg-[#2a2d44] transition"
+                  >
+                    See More
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+        {/* Explore Video Design Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-semibold text-[#3c405b] mb-3">
+            Explore Video Design Projects
+          </h3>
+          <button
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/drive/folders/1799EQKZqVT61ENYXdjO6kuUtbnfGn8lA?usp=sharing",
+                "_blank"
+              )
+            }
+            className="px-6 py-2 bg-[#3c405b] text-white rounded-full hover:bg-[#2a2d44] transition"
+          >
+            Let’s Watch
+          </button>
+        </div>
       </div>
 
       {/* Modal Gallery */}
@@ -260,9 +282,8 @@ const ProjectDetailsPage: React.FC = () => {
                   setSelectedImage(img);
                   setCurrentIndex(idx);
                 }}
-                className={`h-20 w-28 object-cover rounded cursor-pointer border-2 ${
-                  currentIndex === idx ? "border-white" : "border-transparent"
-                }`}
+                className={`h-20 w-28 object-cover rounded cursor-pointer border-2 ${currentIndex === idx ? "border-white" : "border-transparent"
+                  }`}
               />
             ))}
           </div>

@@ -3,13 +3,13 @@ import CountUp from "react-countup";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Portfolio from "../components/Portfolio";
-import Ps from "../public/images/about/ps.png";
-import Ai from "../public/images/about/ai.png";
-import Ae from "../public/images/about/Ae.png";
-import Id from "../public/images/about/Id.png";
-import Pr from "../public/images/about/Pr.png";
-import Lr from "../public/images/about/Lr.png";
-import An from "../public/images/about/an.png";
+import Ps from "../public/images/about/ps.webp";
+import Ai from "../public/images/about/ai.webp";
+import Ae from "../public/images/about/Ae.webp";
+import Id from "../public/images/about/Id.webp";
+import Pr from "../public/images/about/Pr.webp";
+import Lr from "../public/images/about/Lr.webp";
+import An from "../public/images/about/an.webp";
 
 const AboutSection: React.FC = () => {
   const [startCount, setStartCount] = useState(false);

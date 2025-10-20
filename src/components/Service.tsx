@@ -35,7 +35,7 @@ const ServicesSection: React.FC = () => {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <img src={logo} alt="Brand Beecon Logo" className="mx-auto w-14 h-16 md:w-15 md:h-20" />
+          <img src={logo} alt="Brand Beecon Logo" className="mx-auto w-14 h-16 md:w-15 md:h-17" />
           <h2 className="text-xl md:text-2xl font-bold mt-2">BRAND BEECON</h2>
           <div className="w-32 md:w-96 h-[2px] bg-[#3c405b] mx-auto mt-4 md:mt-5"></div>
           <p className="text-gray-600 max-w-3xl mx-auto mt-3 md:mt-4 text-sm md:text-base leading-relaxed px-2">
