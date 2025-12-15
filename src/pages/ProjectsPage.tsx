@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { projectData } from "../utils/Dummydata";
 import { FaEye } from "react-icons/fa";
 import { motion } from "framer-motion";
+import VideoSection from "../components/videoSection";
 
 interface Hotel {
   name: string;
@@ -235,22 +236,7 @@ const ProjectDetailsPage: React.FC = () => {
           )}
 
         {/* Explore Video Design Section */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-semibold text-[#3c405b] mb-3">
-            Explore Video Design Projects
-          </h3>
-          <button
-            onClick={() =>
-              window.open(
-                "https://drive.google.com/drive/folders/1799EQKZqVT61ENYXdjO6kuUtbnfGn8lA?usp=sharing",
-                "_blank"
-              )
-            }
-            className="px-6 py-2 bg-[#3c405b] text-white rounded-full hover:bg-[#2a2d44] transition"
-          >
-            Let’s Watch
-          </button>
-        </div>
+        <VideoSection />
       </div>
 
       {/* Modal Gallery */}

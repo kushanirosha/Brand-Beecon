@@ -7,6 +7,7 @@ import FullScreenBlobs from "../components/gradientBlob";
 import SubscribeSection from "../components/subscribe";
 import ServicesSection from "../components/Service";
 import IntroductionSection from "../components/Introduction";
+import HomeVideoSection from "../components/homeVideoSection";
 
 const HomePage: React.FC = () => {
   useEffect(() => {
@@ -29,11 +30,11 @@ const HomePage: React.FC = () => {
         <section>
           <ServicesSection />
         </section>
-        {/* <section>
-          <About />
-        </section> */}
         <section>
           <Projects />
+        </section>
+        <section>
+          <HomeVideoSection />
         </section>
         <section>
           <Contact />
