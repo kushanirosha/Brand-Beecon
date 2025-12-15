@@ -174,7 +174,7 @@ const QuotationPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   // Web3Forms Access Key
-  const WEB3FORMS_KEY = "b9bf4eb1-37a2-458f-81bf-11255f5b2da6";
+  const WEB3FORMS_KEY = "6ded8375-0e0d-4012-92ce-c0019cd04c52";
 
   const addToOrder = (pkg: Package, qty: number, details?: string) => {
     if (qty <= 0 || isNaN(qty)) {
