@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
           <p>
             © {new Date().getFullYear()} All Rights Reserved. Powered by{" "}
             <span className="text-white font-medium hover:text-blue-500 transition-colors">
-              Brand Beacon
+              Brand Beecon
             </span>
           </p>
         </div>
