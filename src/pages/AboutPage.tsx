@@ -5,6 +5,7 @@ import SubscribeSection from "../components/subscribe";
 import Profile from "../public/images/profileAbout.jpg";
 import SkillsSection from "../components/SkillsSection";
 import HeroSection from "../components/Hero";
+import CV from "../public/PubuduWijerathne.pdf";
 
 const AboutPage: React.FC = () => {
   useEffect(() => {
@@ -69,7 +70,7 @@ const AboutPage: React.FC = () => {
 
               {/* Download CV Button */}
               <a
-                href="src/public/PubuduWijerathne.pdf"
+                href={CV}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-6 py-3 bg-[#3c405b] text-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
