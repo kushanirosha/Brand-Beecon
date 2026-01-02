@@ -236,7 +236,31 @@ const ProjectDetailsPage: React.FC = () => {
           )}
 
         {/* Explore Video Design Section */}
-        <VideoSection />
+        {/*<VideoSection />*/}
+        <div className="mt-16 text-center">
+          <div className="mt-28 text-center">
+            <h3 className="text-3xl font-semibold text-[#3c405b] mb-1">
+              Explore Video Design Projects
+            </h3>
+            <p className="text-gray-600 mb-7 text-center max-w-3xl mx-auto">
+              Dive into our curated selection of video design projects that showcase
+              creativity and innovation.
+            </p>
+
+          </div>
+          <button
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/drive/folders/1799EQKZqVT61ENYXdjO6kuUtbnfGn8lA?usp=sharing",
+                "_blank"
+              )
+            }
+            className="px-6 py-2 bg-[#3c405b] text-white rounded-full hover:bg-[#2a2d44] transition"
+          >
+            Let’s Watch
+          </button>
+        </div>
+
       </div>
 
       {/* Modal Gallery */}

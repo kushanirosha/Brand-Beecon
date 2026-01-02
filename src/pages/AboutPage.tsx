@@ -69,7 +69,7 @@ const AboutPage: React.FC = () => {
 
               {/* Download CV Button */}
               <a
-                href="/src/public/Pubudu Wijerathne.pdf"
+                href="src/public/PubuduWijerathne.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-6 py-3 bg-[#3c405b] text-white rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"

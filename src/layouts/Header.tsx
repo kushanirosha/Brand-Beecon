@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../public/images/logo with name.png";
 
@@ -17,30 +17,30 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Service", href: "/services" },
-    { name: "Project", href: "/projects/all" },
+    { name: "Services", href: "/services" },
+    { name: "Projects", href: "/projects/all" },
     { name: "Blog", href: "/blog" },
     { name: "About Me", href: "/about" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "mt-0" 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "mt-0"
           : ""
-      }`}
+        }`}
     >
       <nav
-        className={`flex items-center justify-between bg-transparent backdrop-blur-md px-6 py-4 md:px-10 transition-all duration-300 ${
-          isScrolled
+        className={`flex items-center justify-between bg-transparent backdrop-blur-md px-6 py-4 md:px-10 transition-all duration-300 ${isScrolled
             ? "w-[85%] max-w-7xl mx-auto rounded-b-2xl shadow-lg"
             : "w-full rounded-none shadow-md"
-        }`}
+          }`}
       >
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img src={logo} alt="Logo" className="h-10 w-auto" />
+          <Link to="/">
+            <img src={logo} alt="Logo" className="h-10 w-auto cursor-pointer" />
+          </Link>
         </div>
 
         {/* Desktop Nav - Centered */}
@@ -50,19 +50,17 @@ const Header: React.FC = () => {
               key={item.name}
               to={item.href}
               className={({ isActive }) =>
-                `relative group font-medium transition-colors ${
-                  isActive ? "text-blue-800" : "text-[#3c405b] hover:text-blue-800"
+                `relative group font-medium transition-colors ${isActive ? "text-blue-800" : "text-[#3c405b] hover:text-blue-800"
                 }`
               }
             >
               {item.name}
               <span
-                className={`absolute left-0 -bottom-1 h-0.5 bg-blue-800 transition-all duration-300 ${
-                  (item.href === "/" && window.location.pathname === "/") ||
-                  (item.href !== "/" && window.location.pathname.startsWith(item.href))
+                className={`absolute left-0 -bottom-1 h-0.5 bg-blue-800 transition-all duration-300 ${(item.href === "/" && window.location.pathname === "/") ||
+                    (item.href !== "/" && window.location.pathname.startsWith(item.href))
                     ? "w-full"
                     : "w-0 group-hover:w-full"
-                }`}
+                  }`}
               ></span>
             </NavLink>
           ))}
@@ -90,11 +88,10 @@ const Header: React.FC = () => {
       {/* Mobile Dropdown */}
       {isMenuOpen && (
         <div
-          className={`mt-2 bg-white shadow-lg p-5 flex flex-col items-center space-y-4 md:hidden transition-all duration-300 ${
-            isScrolled
+          className={`mt-2 bg-white shadow-lg p-5 flex flex-col items-center space-y-4 md:hidden transition-all duration-300 ${isScrolled
               ? "w-[85%] max-w-7xl mx-auto rounded-2xl"
               : "w-full mx-0 rounded-none"
-          }`}
+            }`}
         >
           {navItems.map((item) => (
             <NavLink
@@ -102,20 +99,18 @@ const Header: React.FC = () => {
               to={item.href}
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
-                `relative font-medium text-lg transition-colors ${
-                  isActive ? "text-blue-800" : "text-[#3c405b] hover:text-blue-800"
+                `relative font-medium text-lg transition-colors ${isActive ? "text-blue-800" : "text-[#3c405b] hover:text-blue-800"
                 }`
               }
             >
               {item.name}
               <span
-                className={`absolute left-0 -bottom-1 h-0.5 bg-blue-800 transition-all duration-300 ${
-                  window.location.pathname === item.href ||
-                  (item.href === "/" && window.location.pathname === "/") ||
-                  (item.href !== "/" && window.location.pathname.startsWith(item.href))
+                className={`absolute left-0 -bottom-1 h-0.5 bg-blue-800 transition-all duration-300 ${window.location.pathname === item.href ||
+                    (item.href === "/" && window.location.pathname === "/") ||
+                    (item.href !== "/" && window.location.pathname.startsWith(item.href))
                     ? "w-full"
                     : "w-0 hover:w-full"
-                }`}
+                  }`}
               ></span>
             </NavLink>
           ))}
